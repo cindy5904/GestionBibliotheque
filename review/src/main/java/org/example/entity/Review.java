@@ -5,33 +5,29 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.dto.BookDTO;
-import org.example.dto.UserDTO;
-
-import java.time.LocalDateTime;
+import org.example.dto.BookDto;
+import org.example.dto.UserDto;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "emprunts")
-public class Emprunt {
+@Table(name = "reviews")
+public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int quantity;
-    private LocalDateTime dateEmprunt;
-    private LocalDateTime returnDate;
+    private String commentaire;
+    private int note;
     @Column(name= "book_id")
     private Long bookId;
     @Column(name= "user_id")
     private Long userId;
 
     @Transient
-    public BookDTO bookDTO;
+    public BookDto bookDto;
 
     @Transient
-    public UserDTO userDTO;
-
+    public UserDto userDto;
 }
